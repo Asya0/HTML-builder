@@ -6,10 +6,9 @@ const stream = fs.createReadStream(chunk, 'utf8');
 
 stream.on('readable', function() {
     fileContent = stream.read();
-    console.log(fileContent);
-});
-stream.on('end', () => console.log(fileContent));
-stream.on('error', function(err) {
+    if (fileContent != null) console.log(fileContent);
+    });
+    stream.on('error', function(err) {
     console.log('Error', err.message);
 });
 
